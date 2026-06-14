@@ -17,11 +17,9 @@ st.set_page_config(page_title="Kredi Risk Skoru", page_icon="📊", layout="wide
 
 # ---- SIDEBAR: Girdiler ----
 st.sidebar.markdown("#### Yaş")
-st.sidebar.caption("Başvuru sahibinin yaşı")
 age = st.sidebar.number_input("Yas", 18, 100, value=18, label_visibility="collapsed")
 
-st.sidebar.markdown("#### Aylık Brüt Gelir (TL)")
-st.sidebar.caption("Vergi kesilmeden önceki maaş (bordro brüt)")
+st.sidebar.markdown("#### Aylık Net Gelir (TL)")
 income = st.sidebar.number_input("Gelir", 0, value=0, step=1000, label_visibility="collapsed")
 
 st.sidebar.markdown("#### Kredi Kartı Kullanım Oranı (%)")
@@ -35,15 +33,12 @@ debt_yuzde = st.sidebar.slider("Borc", 0, 100, 35, label_visibility="collapsed")
 debt = debt_yuzde / 100
 
 st.sidebar.markdown("#### Açık Kredi / Kart Sayısı")
-st.sidebar.caption("Aktif kredi ve kredi kartı sayısı")
 open_credit = st.sidebar.number_input("AcikKredi", 0, value=0, label_visibility="collapsed")
 
 st.sidebar.markdown("#### Gayrimenkul Kredisi Sayısı")
-st.sidebar.caption("Konut/gayrimenkul kredisi sayısı")
 realestate = st.sidebar.number_input("Gayrimenkul", 0, value=0, label_visibility="collapsed")
 
 st.sidebar.markdown("#### Bakmakla Yükümlü Kişi Sayısı")
-st.sidebar.caption("Bakmakla yükümlü olunan kişi sayısı")
 dependents = st.sidebar.number_input("Bagimli", 0, value=0, label_visibility="collapsed")
 
 st.sidebar.markdown("#### Geçmiş Gecikme Sayısı")
