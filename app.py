@@ -22,13 +22,11 @@ age = st.sidebar.number_input("Yas", 18, 100, value=18, label_visibility="collap
 st.sidebar.markdown("#### Aylık Net Gelir (TL)")
 income = st.sidebar.number_input("Gelir", 0, value=0, step=1000, label_visibility="collapsed")
 
-st.sidebar.markdown("#### Kredi Kartı Kullanım Oranı (%)")
-st.sidebar.caption("Kredi kartı limitinin yüzde kaçı kullanılıyor")
+st.sidebar.markdown("#### Kredi Kartı Limitinin Oranı (%)")
 revol_yuzde = st.sidebar.slider("Kullanim", 0, 100, 30, label_visibility="collapsed")
 revol = revol_yuzde / 100
 
-st.sidebar.markdown("#### Borç / Gelir Oranı (%)")
-st.sidebar.caption("Aylık gelirin yüzde kaçı borç/kredi ödemesine gidiyor")
+st.sidebar.markdown("#### Aylık gelirin yüzde kaçı borç/kredi ödemesine gidiyor (%)")
 debt_yuzde = st.sidebar.slider("Borc", 0, 100, 35, label_visibility="collapsed")
 debt = debt_yuzde / 100
 
@@ -41,8 +39,7 @@ realestate = st.sidebar.number_input("Gayrimenkul", 0, value=0, label_visibility
 st.sidebar.markdown("#### Bakmakla Yükümlü Kişi Sayısı")
 dependents = st.sidebar.number_input("Bagimli", 0, value=0, label_visibility="collapsed")
 
-st.sidebar.markdown("#### Geçmiş Gecikme Sayısı")
-st.sidebar.caption("Daha önce kaç kez ödeme geciktirildiği")
+st.sidebar.markdown("#### Geçmiş Ödemelerde Gecikme Sayısı")
 toplam_gecikme = st.sidebar.number_input("Gecikme", 0, value=0, label_visibility="collapsed")
 
 hesapla = st.sidebar.button("HESAPLA", type="primary", use_container_width=True)
