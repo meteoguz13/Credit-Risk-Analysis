@@ -17,34 +17,38 @@ st.set_page_config(page_title="Kredi Risk Skoru", page_icon="📊", layout="wide
 
 # ---- SIDEBAR: Girdiler ----
 st.sidebar.markdown("#### Yaş")
-age = st.sidebar.number_input("Yas", 18, 100, value=40, label_visibility="collapsed")
+st.sidebar.caption("Başvuru sahibinin yaşı")
+age = st.sidebar.number_input("Yas", 18, 100, value=18, label_visibility="collapsed")
 
 st.sidebar.markdown("#### Aylık Brüt Gelir (TL)")
-income = st.sidebar.number_input("Gelir", 0, value=58000, step=1000,
-                                 label_visibility="collapsed", help="Bordroda yazan brüt tutar")
+st.sidebar.caption("Vergi kesilmeden önceki maaş (bordro brüt)")
+income = st.sidebar.number_input("Gelir", 0, value=0, step=1000, label_visibility="collapsed")
 
 st.sidebar.markdown("#### Kredi Kartı Kullanım Oranı (%)")
-revol_yuzde = st.sidebar.slider("Kullanim", 0, 100, 20, label_visibility="collapsed",
-                                help="Limitin yüzde kaçı kullanılıyor")
+st.sidebar.caption("Kredi kartı limitinin yüzde kaçı kullanılıyor")
+revol_yuzde = st.sidebar.slider("Kullanim", 0, 100, 30, label_visibility="collapsed")
 revol = revol_yuzde / 100
 
 st.sidebar.markdown("#### Borç / Gelir Oranı (%)")
-debt_yuzde = st.sidebar.slider("Borc", 0, 100, 25, label_visibility="collapsed",
-                               help="Gelirinizin yüzde kaçı borca gidiyor")
+st.sidebar.caption("Aylık gelirin yüzde kaçı borç/kredi ödemesine gidiyor")
+debt_yuzde = st.sidebar.slider("Borc", 0, 100, 35, label_visibility="collapsed")
 debt = debt_yuzde / 100
 
 st.sidebar.markdown("#### Açık Kredi / Kart Sayısı")
-open_credit = st.sidebar.number_input("AcikKredi", 0, value=5, label_visibility="collapsed")
+st.sidebar.caption("Aktif kredi ve kredi kartı sayısı")
+open_credit = st.sidebar.number_input("AcikKredi", 0, value=0, label_visibility="collapsed")
 
 st.sidebar.markdown("#### Gayrimenkul Kredisi Sayısı")
-realestate = st.sidebar.number_input("Gayrimenkul", 0, value=1, label_visibility="collapsed")
+st.sidebar.caption("Konut/gayrimenkul kredisi sayısı")
+realestate = st.sidebar.number_input("Gayrimenkul", 0, value=0, label_visibility="collapsed")
 
 st.sidebar.markdown("#### Bakmakla Yükümlü Kişi Sayısı")
+st.sidebar.caption("Bakmakla yükümlü olunan kişi sayısı")
 dependents = st.sidebar.number_input("Bagimli", 0, value=0, label_visibility="collapsed")
 
 st.sidebar.markdown("#### Geçmiş Gecikme Sayısı")
-toplam_gecikme = st.sidebar.number_input("Gecikme", 0, value=0,
-                                         label_visibility="collapsed", help="Daha önce kaç kez ödeme geciktirildi")
+st.sidebar.caption("Daha önce kaç kez ödeme geciktirildiği")
+toplam_gecikme = st.sidebar.number_input("Gecikme", 0, value=0, label_visibility="collapsed")
 
 hesapla = st.sidebar.button("HESAPLA", type="primary", use_container_width=True)
 
