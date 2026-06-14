@@ -22,7 +22,7 @@ age = st.sidebar.number_input("Yas", 18, 100, value=18, label_visibility="collap
 st.sidebar.markdown("#### Aylık Net Gelir (TL)")
 income = st.sidebar.number_input("Gelir", 0, value=0, step=1000, label_visibility="collapsed")
 
-st.sidebar.markdown("#### Kredi Kartı Limitinin Oranı (%)")
+st.sidebar.markdown("#### Kredi Kartı Limit Kullanım Oranı (%)")
 revol_yuzde = st.sidebar.slider("Kullanim", 0, 100, 30, label_visibility="collapsed")
 revol = revol_yuzde / 100
 
