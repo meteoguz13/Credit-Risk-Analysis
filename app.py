@@ -149,7 +149,7 @@ if hesapla:
         - **Açıklanabilirlik:** SHAP (TreeExplainer)
         - **Veri:** Give Me Some Credit (gerçek veri, TR gelir bağlamına ölçeklendi)
         - **Sınıf dengesizliği:** scale_pos_weight ile ele alındı
-        - Detaylı metodoloji için README'ye bakınız.
+        - - **Detaylı metodoloji:** [GitHub README](https://github.com/meteoguz13/Credit-Risk-Analysis#readme)
         """)
 
 else:
