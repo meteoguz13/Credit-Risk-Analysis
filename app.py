@@ -85,25 +85,25 @@ if hesapla:
 
         # Kredi kartı kullanımı
         if revol_yuzde > 60:
-            oneriler.append(("error", f"💳 Kart kullanımı çok yüksek (%{revol_yuzde}) — düşürmek riski azaltır"))
+            oneriler.append(("error", f"💳 Kart kullanımı çok yüksek (%{revol_yuzde})"))
         elif revol_yuzde > 30:
-            oneriler.append(("warning", f"💳 Kart kullanımı orta düzeyde (%{revol_yuzde}) — biraz düşürmek olumlu olur"))
+            oneriler.append(("warning", f"💳 Kart kullanımı orta düzeyde (%{revol_yuzde})"))
         else:
-            oneriler.append(("success", f"💳 Kart kullanımı düşük (%{revol_yuzde}) — olumlu"))
+            oneriler.append(("success", f"💳 Kart kullanımı düşük (%{revol_yuzde})"))
 
         # Geçmiş gecikme
         if toplam_gecikme > 0:
-            oneriler.append(("error", f"📅 Geçmişte {toplam_gecikme} gecikme var — düzenli ödeme zamanla telafi eder"))
+            oneriler.append(("error", f"📅 Geçmişte {toplam_gecikme} gecikme var"))
         else:
-            oneriler.append(("success", "📅 Geçmiş ödeme kaydı temiz — olumlu"))
+            oneriler.append(("success", "📅 Geçmiş ödeme kaydı temiz"))
 
         # Borç/gelir
         if debt_yuzde > 60:
-            oneriler.append(("error", f"⚖️ Borç/gelir oranı yüksek (%{debt_yuzde}) — borç yükünü azaltmak önemli"))
+            oneriler.append(("error", f"⚖️ Borç/gelir oranı yüksek (%{debt_yuzde})"))
         elif debt_yuzde > 30:
-            oneriler.append(("warning", f"⚖️ Borç/gelir oranı orta (%{debt_yuzde}) — dengede tutmak önemli"))
+            oneriler.append(("warning", f"⚖️ Borç/gelir oranı orta (%{debt_yuzde})"))
         else:
-            oneriler.append(("success", f"⚖️ Borç/gelir oranı sağlıklı (%{debt_yuzde}) — olumlu"))
+            oneriler.append(("success", f"⚖️ Borç/gelir oranı sağlıklı (%{debt_yuzde})"))
 
         # Her öneriyi uygun renkte göster
         for tur, mesaj in oneriler:
