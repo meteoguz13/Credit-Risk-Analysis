@@ -64,7 +64,7 @@ if hesapla:
     else:
         seviye, renk, yorum = "YÜKSEK RİSK", "red", "Ödeme alışkanlığı ve profil açısından detaylı değerlendirme gerekir."
 
-    sekme1, sekme2, sekme3 = st.tabs(["📊 Sonuç", "📈 Detaylı Analiz", "🔧 Teknik"])
+    sekme1, sekme2, sekme3 = st.tabs(["📊 Sonuç", "❓ Yardım", "🔧 Teknik"])
 
     # ---- SEKME 1: Ana Sonuç ----
     with sekme1:
@@ -96,7 +96,7 @@ if hesapla:
             o1, o2, o3 = st.columns(3)
             o1.error("📉 Borç ve kart kullanımını azaltın")
             o2.error("📅 Düzenli ödeme telafi eder")
-            o3.error("🛑 Yeni kredi yükünden kaçının")
+            o3.error("️⚖️ Borç/gelir dengesini koruyun")
 
     # ---- SEKME 2: Detaylı Analiz (kişiye özel, sade) ----
     with sekme2:
