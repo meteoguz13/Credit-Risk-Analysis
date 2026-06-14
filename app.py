@@ -79,24 +79,40 @@ if hesapla:
             st.error(yorum)
 
         st.markdown("---")
-        if renk == "green":
-            st.markdown("#### ✅ Güçlü Profil")
-            o1, o2, o3 = st.columns(3)
-            o1.success("💳 Kart kullanımı kontrollü")
-            o2.success("📅 Ödeme geçmişi temiz")
-            o3.success("👍 Mevcut alışkanlıkları sürdürün")
-        elif renk == "orange":
-            st.markdown("#### ⚠️ Sınırda Profil")
-            o1, o2, o3 = st.columns(3)
-            o1.warning("💳 Kart kullanımını düşürün")
-            o2.warning("⚖️ Borç/gelir dengesini koruyun")
-            o3.warning("📅 Zamanında ödeme yapın")
+        st.markdown("#### 📋 Profil Değerlendirmesi")
+
+        oneriler = []
+
+        # Kredi kartı kullanımı
+        if revol_yuzde > 60:
+            oneriler.append(("error", f"💳 Kart kullanımı çok yüksek (%{revol_yuzde}) — düşürmek riski azaltır"))
+        elif revol_yuzde > 30:
+            oneriler.append(("warning", f"💳 Kart kullanımı orta düzeyde (%{revol_yuzde}) — biraz düşürmek olumlu olur"))
         else:
-            st.markdown("#### 🚨 Riskli Profil")
-            o1, o2, o3 = st.columns(3)
-            o1.error("📉 Borç ve kart kullanımını azaltın")
-            o2.error("📅 Düzenli ödeme telafi eder")
-            o3.error("️⚖️ Borç/gelir dengesini koruyun")
+            oneriler.append(("success", f"💳 Kart kullanımı düşük (%{revol_yuzde}) — olumlu"))
+
+        # Geçmiş gecikme
+        if toplam_gecikme > 0:
+            oneriler.append(("error", f"📅 Geçmişte {toplam_gecikme} gecikme var — düzenli ödeme zamanla telafi eder"))
+        else:
+            oneriler.append(("success", "📅 Geçmiş ödeme kaydı temiz — olumlu"))
+
+        # Borç/gelir
+        if debt_yuzde > 60:
+            oneriler.append(("error", f"⚖️ Borç/gelir oranı yüksek (%{debt_yuzde}) — borç yükünü azaltmak önemli"))
+        elif debt_yuzde > 30:
+            oneriler.append(("warning", f"⚖️ Borç/gelir oranı orta (%{debt_yuzde}) — dengede tutmak önemli"))
+        else:
+            oneriler.append(("success", f"⚖️ Borç/gelir oranı sağlıklı (%{debt_yuzde}) — olumlu"))
+
+        # Her öneriyi uygun renkte göster
+        for tur, mesaj in oneriler:
+            if tur == "success":
+                st.success(mesaj)
+            elif tur == "warning":
+                st.warning(mesaj)
+            else:
+                st.error(mesaj)
 
     # ---- SEKME 2: Detaylı Analiz (kişiye özel, sade) ----
     with sekme2:
