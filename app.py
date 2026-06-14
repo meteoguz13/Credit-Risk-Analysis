@@ -85,11 +85,11 @@ if hesapla:
 
         # Kredi kartı kullanımı
         if revol_yuzde > 60:
-            oneriler.append(("error", f"💳 Kart kullanımı çok yüksek (%{revol_yuzde})"))
+            oneriler.append(("error", f"💳 Kart limit kullanımı çok yüksek (%{revol_yuzde})"))
         elif revol_yuzde > 30:
-            oneriler.append(("warning", f"💳 Kart kullanımı orta düzeyde (%{revol_yuzde})"))
+            oneriler.append(("warning", f"💳 Kart limit kullanımı orta düzeyde (%{revol_yuzde})"))
         else:
-            oneriler.append(("success", f"💳 Kart kullanımı düşük (%{revol_yuzde})"))
+            oneriler.append(("success", f"💳 Kart limit kullanımı düşük (%{revol_yuzde})"))
 
         # Geçmiş gecikme
         if toplam_gecikme > 0:
