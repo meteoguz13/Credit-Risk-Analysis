@@ -69,7 +69,7 @@ if hesapla:
     # ---- SEKME 1: Ana Sonuç ----
     with sekme1:
         st.markdown(
-            f"<h1 style='color:{renk}; font-size:56px; margin-bottom:0;'>{seviye} <span style='font-size:28px; color:gray;'>(%{yuzde:.1f})</span></h1>",
+            f"<h1 style='color:{renk}; font-size:56px; margin-bottom:0;'>{seviye} <span style='font-size:28px",
             unsafe_allow_html=True)
         if renk == "green":
             st.success(yorum)
